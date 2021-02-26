@@ -2,6 +2,12 @@
     background-color: #cccccc;
 }
 
+.searchbar-form {
+    text-align: center;
+}
+
 .searchbar {
     border-color: blueviolet;
+    padding: 1rem;
+    font-size: 25px;
 }
