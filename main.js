@@ -119,8 +119,11 @@ class Hashing {
             // If collision is detected, it means the generated finalArray is wrong and should be reset
             finalArray.fill(null);
         }
+        // while loop exists with finalArray completely generated since it was passed by reference
+        // Save the values for a, b, and m
+        this.hashTableKeys[primaryHashValue] = [a, b, finalArrayLength];
 
-
+        return finalArray;
     }
 }
 
