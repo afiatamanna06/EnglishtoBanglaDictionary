@@ -104,6 +104,13 @@ class Hashing {
                     console.log("Key: " + this.convertFromWordToKey(dictionary.database[returnArray[i]].en));
                     console.log('Secondary Hashing: ' + this.calculateSecondaryHash(a, b, finalArrayLength, dictionary.database[returnArray[i]].en))
                 }
+                console.log('\n')
+                console.log('Final array: ')
+                for (var i = 0; i < finalArray.length; i++) {
+                    console.log(i + ' ' + finalArray[i]);
+                }
+
+                throw Error('Too many iterations required!');
             }
         }
 
