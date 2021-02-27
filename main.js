@@ -193,6 +193,23 @@ class Hashing {
 var dictionary = new Dictionary();
 var hashing = new Hashing();
 
+window.onload = function initializeHashing() {
+    console.log('Data Received');
+    dictionary = fetch(dictionaryDatabaseLink)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            // Printing response.json will execute the line instantly without waiting for the promise to be fulfilled
+            return response.json()
+        })
+        .then(json => {
+            dictionary.database = json;
+            dictionary.numberOfWords = Object.keys(dictionary.database).length;
+        })
+        .then(response => hashing.generateHashTable());
+}
+
 function searchBengali() {
     var searchInput = document.getElementById('search-meaning');
     var word = searchInput.value.toLowerCase();
