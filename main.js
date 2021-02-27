@@ -182,7 +182,12 @@ class Hashing {
                 this.hashTableKeys[i] = [1, 0, 1];
             }
         }
+
+        console.log('Done Hashing!');
+
+        debug.statistics(this.hashTable);
     }
+
 }
 
 function searchBengali() {
