@@ -80,6 +80,14 @@ class Hashing {
 
         var finalArrayLength = returnArray.length * returnArray.length;
         var finalArray = new Array(finalArrayLength).fill(null);
+
+        // Make a copy of the returnArray that currently holds the indices who map to the same primaryHashValue.
+        var initialArray = Array.from(returnArray);
+
+        // Checking if collision occurs
+        var a = Math.floor(Math.random() * (PRIME - 1)) + 1;
+        var b = Math.floor(Math.random() * PRIME);
+
     }
 }
 
