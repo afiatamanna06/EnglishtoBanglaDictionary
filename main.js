@@ -88,6 +88,26 @@ class Hashing {
         var a = Math.floor(Math.random() * (PRIME - 1)) + 1;
         var b = Math.floor(Math.random() * PRIME);
 
+        // Error Handling
+        var itr = 0;
+
+        while (this.collisionDetected(a, b, finalArrayLength, initialArray, finalArray)) {
+            // For avoiding infinite loop in case of duplicate words or other unexpected errors. Ideally the lines inside the if condition should never run.
+            itr = itr + 1;
+            if (itr > 100) {
+                console.log('a = ' + a + ", b = " + b);
+                console.log('Final Length: ' + finalArrayLength);
+                console.log('The array: ');
+                for (var i = 0; i < returnArray.length; i++) {
+                    console.log(dictionary.database[returnArray[i]].en)
+                    console.log('Word Index: ' + returnArray[i]);
+                    console.log("Key: " + this.convertFromWordToKey(dictionary.database[returnArray[i]].en));
+                    console.log('Secondary Hashing: ' + this.calculateSecondaryHash(a, b, finalArrayLength, dictionary.database[returnArray[i]].en))
+                }
+            }
+        }
+
+
     }
 }
 
