@@ -112,6 +112,12 @@ class Hashing {
 
                 throw Error('Too many iterations required!');
             }
+
+            a = Math.floor(Math.random() * (PRIME - 1)) + 1;
+            b = Math.floor(Math.random() * PRIME);
+
+            // If collision is detected, it means the generated finalArray is wrong and should be reset
+            finalArray.fill(null);
         }
 
 
