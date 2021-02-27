@@ -30,6 +30,9 @@ class Hashing {
         if (this.primaryHashA == null || this.primaryHashB == null) {
             this.primaryHashA = a;
             this.primaryHashB = b;
+        } else {
+            a = this.primaryHashA;
+            b = this.primaryHashB;
         }
     }
 }
