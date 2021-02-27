@@ -75,6 +75,19 @@ class Hashing {
         return ((Number((aB * keyB) % BigInt(PRIME)) + b) % PRIME) % m;
     }
 
+    collisionDetected(a, b, m, initialArray, finalArray) {
+        for (var i = 0; i < initialArray.length; i++) {
+            var secondaryHashValue = this.calculateSecondaryHash(a, b, m, dictionary.database[initialArray[i]].en);
+
+            if (finalArray[secondaryHashValue] == null) {
+                finalArray[secondaryHashValue] = initialArray[i];
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
     generateSecondaryHash(returnArray, primaryHashValue) {
         // returnArray refers to the hashtable[i] where finally the secondary hashtable should be implemented.
 
