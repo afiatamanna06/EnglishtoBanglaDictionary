@@ -67,7 +67,13 @@ class Hashing {
 
         return Number(outp);
     }
-}
+
+    calculateSecondaryHash(a, b, m, word) {
+        const aB = BigInt(a);
+        const keyB = BigInt(this.convertFromWordToKey(word));
+
+        return ((Number((aB * keyB) % BigInt(PRIME)) + b) % PRIME) % m;
+    }
 }
 
 function searchBengali() {
