@@ -1,6 +1,8 @@
 const databaseURL = 'https://raw.githubusercontent.com/afiatamanna06/EnglishtoBanglaDictionary/main/database/E2Bdatabase.json';
 const PRIME = 921023456789;
 const RADIX = 256;
+const ROOT_PRIME = 95300
+var START_TIME;
 
 class Debug {
 
@@ -47,6 +49,9 @@ class Debug {
     }
 
 }
+
+var debug = new Debug();
+
 class Dictionary {
     database
     numberOfWords
