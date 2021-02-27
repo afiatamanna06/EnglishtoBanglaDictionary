@@ -140,6 +140,14 @@ class Hashing {
 
         return uniqueValue;
     }
+
+    calculatePrimaryHash(word) {
+        return this.convertFromWordToKey(word) % dictionary.numberOfWords;
+    }
+
+    generatePrimaryHash(word) {
+        return this.convertFromWordToKey(word) % dictionary.numberOfWords;
+    }
 }
 
 function searchBengali() {
