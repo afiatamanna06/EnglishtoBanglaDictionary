@@ -1,5 +1,5 @@
 const databaseURL = 'https://raw.githubusercontent.com/afiatamanna06/EnglishtoBanglaDictionary/main/database/E2Bdatabase.json';
-
+const PRIME = 921023456789;
 class Dictionary {
     database
     numberOfWords
@@ -17,6 +17,20 @@ class Hashing {
             this.hashTable[i] = [];
         }
         this.hashTableKeys = new Array(dictionary.numberOfWords).fill(null);
+    }
+
+    convertFromWordToKey(word) {
+        // taking lowercase word
+        var val = 0;
+        var a = Math.floor(Math.random() * (PRIME - 1)) + 1;
+        var b = Math.floor(Math.random() * PRIME);
+
+        // Check if the hash has already been implemented and a, b values are already defined. 
+        // Otherwise creates new hashTable
+        if (this.primaryHashA == null || this.primaryHashB == null) {
+            this.primaryHashA = a;
+            this.primaryHashB = b;
+        }
     }
 }
 
