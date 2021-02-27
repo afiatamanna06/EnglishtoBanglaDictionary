@@ -148,6 +148,26 @@ class Hashing {
     generatePrimaryHash(word) {
         return this.convertFromWordToKey(word) % dictionary.numberOfWords;
     }
+
+    generateHashTable() {
+        START_TIME = new Date();
+        this.initializeHashTable();
+
+        for (var i = 0; i < dictionary.numberOfWords; i++) {
+            // All words must be converted into lowercase first.
+            dictionary.database[i].en = dictionary.database[i].en.toLowerCase();
+            var word = dictionary.database[i].en;
+            var numValue = this.generatePrimaryHash(word);
+
+            // Secondary Hash is going to contain the indices of the dictionary.database
+            // First check if this word already exists
+            if (this.noDuplicate(word, this.hashTable[numValue])) {
+                // DEBUG
+
+                this.hashTable[numValue].push(i);
+            }
+        }
+    }
 }
 
 function searchBengali() {
