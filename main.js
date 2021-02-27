@@ -240,5 +240,8 @@ function searchBengali() {
         } else {
             throw 'Word Not Found';
         }
-    }
+    } catch (err) {
+        console.log(err);
+        output.innerHTML = '';
+    };
 }
