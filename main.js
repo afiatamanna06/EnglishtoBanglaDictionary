@@ -12,6 +12,15 @@ class Debug {
 
         return Math.sqrt(mx);
     }
+
+    numberOfSlots(hashTable) {
+        var sum = 0;
+        for (var i = 0; i < hashTable.length; i++) {
+            sum += hashTable[i].length;
+        }
+
+        return sum;
+    }
 }
 class Dictionary {
     database
