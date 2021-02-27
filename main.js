@@ -214,4 +214,31 @@ function searchBengali() {
     var searchInput = document.getElementById('search-meaning');
     var word = searchInput.value.toLowerCase();
     var output = document.getElementById('meaning');
+    var priHash = hashing.calculatePrimaryHash(word);
+    var secHash;
+
+    try {
+        if (hashing.hashTableKeys[priHash] == null) {
+            throw 'Word Not Found';
+        }
+
+        const a = hashing.hashTableKeys[priHash][0];
+        const b = hashing.hashTableKeys[priHash][1];
+        const m = hashing.hashTableKeys[priHash][2];
+
+        secHash = hashing.calculateSecondaryHash(a, b, m, word);
+
+        // DEBUG
+        // console.log('abm: ' +a + ' ' + b + ' ' + m);
+        // console.log(hashing.hashTable[priHash][secHash]);
+        // console.log(dictionary.database[hashing.hashTable[priHash][secHash]]);
+
+
+        if (hashing.hashTable[priHash][secHash] != null &&
+            dictionary.database[hashing.hashTable[priHash][secHash]].en == word) {
+            output.innerHTML = dictionary.database[hashing.hashTable[priHash][secHash]].bn;
+        } else {
+            throw 'Word Not Found';
+        }
+    }
 }
