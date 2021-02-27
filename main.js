@@ -21,6 +21,17 @@ class Debug {
 
         return sum;
     }
+
+    numberOfEmptySlots() {
+        var sum = 0;
+        for (var i = 0; i < hashing.hashTableKeys.length; i++) {
+            if (hashing.hashTableKeys[i] == null) {
+                sum++;
+            }
+        }
+
+        return sum;
+    }
 }
 class Dictionary {
     database
