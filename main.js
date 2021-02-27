@@ -1,6 +1,18 @@
 const databaseURL = 'https://raw.githubusercontent.com/afiatamanna06/EnglishtoBanglaDictionary/main/database/E2Bdatabase.json';
 const PRIME = 921023456789;
 const RADIX = 256;
+
+class Debug {
+    duplicateWords = 0
+    maximumCollisionInFirstLayer(hashTable) {
+        var mx = -1;
+        for (var i = 0; i < hashTable.length; i++) {
+            mx = Math.max(mx, hashTable[i].length);
+        }
+
+        return Math.sqrt(mx);
+    }
+}
 class Dictionary {
     database
     numberOfWords
