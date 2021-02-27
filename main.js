@@ -125,6 +125,21 @@ class Hashing {
 
         return finalArray;
     }
+
+    noDuplicate(word, array) {
+        // This function checks if the word already exists in the array
+
+        var uniqueValue = true;
+        for (var i = 0; i < array.length; i++) {
+            if (dictionary.database[array[i]].en == word) {
+                debug.duplicateWords++;
+                uniqueValue = false;
+                break;
+            }
+        }
+
+        return uniqueValue;
+    }
 }
 
 function searchBengali() {
