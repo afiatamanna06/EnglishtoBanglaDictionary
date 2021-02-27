@@ -3,6 +3,7 @@ const PRIME = 921023456789;
 const RADIX = 256;
 
 class Debug {
+
     duplicateWords = 0
     maximumCollisionInFirstLayer(hashTable) {
         var mx = -1;
@@ -32,6 +33,19 @@ class Debug {
 
         return sum;
     }
+
+    statistics(hashTable) {
+        var END_TIME = new Date();
+        console.log('Hashing Took ' + (END_TIME.getTime() - START_TIME.getTime()) + 'ms');
+        console.log('Total Words: ' + dictionary.numberOfWords);
+        console.log('Total Duplicates: ' + this.duplicateWords);
+        console.log('Maximum number of collisions in a particular slot: ' +
+            this.maximumCollisionInFirstLayer(hashTable));
+        console.log('Sum of the # of slots should be less than ' + dictionary.numberOfWords * 2);
+        console.log('Sum of the # of slots (sum(n_j^2)): ' + this.numberOfSlots(hashTable));
+        console.log('Number of empty slots: ' + this.numberOfEmptySlots());
+    }
+
 }
 class Dictionary {
     database
