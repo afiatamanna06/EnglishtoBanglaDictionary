@@ -190,6 +190,9 @@ class Hashing {
 
 }
 
+var dictionary = new Dictionary();
+var hashing = new Hashing();
+
 function searchBengali() {
     var searchInput = document.getElementById('search-meaning');
     var word = searchInput.value.toLowerCase();
