@@ -74,6 +74,13 @@ class Hashing {
 
         return ((Number((aB * keyB) % BigInt(PRIME)) + b) % PRIME) % m;
     }
+
+    generateSecondaryHash(returnArray, primaryHashValue) {
+        // returnArray refers to the hashtable[i] where finally the secondary hashtable should be implemented.
+
+        var finalArrayLength = returnArray.length * returnArray.length;
+        var finalArray = new Array(finalArrayLength).fill(null);
+    }
 }
 
 function searchBengali() {
