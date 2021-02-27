@@ -167,6 +167,21 @@ class Hashing {
                 this.hashTable[numValue].push(i);
             }
         }
+
+        console.log('First Layer Hashing Done')
+
+        // Detect Collisions in primary and apply secondary Hashing
+        for (var i = 0; i < dictionary.numberOfWords; i++) {
+            if (this.hashTable[i].length > 1) {
+                // Number of collision detected in this bucket
+
+                this.hashTable[i] = this.generateSecondaryHash(this.hashTable[i], i);
+
+                // The new size of hashtable[i].length should be the square of the size hashtable[i] that was passed
+            } else if (this.hashTable[i].length == 1) {
+                this.hashTableKeys[i] = [1, 0, 1];
+            }
+        }
     }
 }
 
