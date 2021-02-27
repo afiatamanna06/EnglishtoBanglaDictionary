@@ -53,7 +53,21 @@ class Hashing {
         for (var i = 0; i < word.length; i++) {
             val = ((val * RADIX) % PRIME + word.charCodeAt(i)) % PRIME;
         }
+
+        // Javascript Number type has a max safe value of some 16 digits integer
+        // Since max(a) = 12 digit decimal and max(val) = 12 digit decimal, so
+        // their product might cross that limit. Thus BigInt has been used. The
+        // result is ultimately converted to Number type by taking remainder
+
+        const aB = BigInt(a);
+        const valB = BigInt(val);
+        const primeB = BigInt(PRIME);
+        const bB = BigInt(b);
+        const outp = (aB * valB + bB) % primeB;
+
+        return Number(outp);
     }
+}
 }
 
 function searchBengali() {
