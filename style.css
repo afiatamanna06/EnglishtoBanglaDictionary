@@ -23,6 +23,7 @@ body {
 }
 
 .searchbar {
+    background: url(./search2.png) no-repeat white right 11px center / 25px;
     border-color: #ff1a75;
     padding: 1rem;
     font-size: 25px;
@@ -32,6 +33,10 @@ body {
     -webkit-text-fill-color: rgba(255, 255, 255, 0.575);
     border-radius: 2rem;
     color: rgb(223, 218, 218);
+}
+
+.text-danger {
+    color: #d9534f
 }
 
 .searchbar:focus {
