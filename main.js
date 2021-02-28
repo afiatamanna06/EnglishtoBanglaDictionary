@@ -278,33 +278,32 @@ function searchBengali() {
     var word = searchInput.value.toLowerCase();
     var priHash = hashing.calculatePrimaryHash(word);
     var secHash;
-    document.getElementById('demo').innerHTML = searchInput;
+    let bar = document.querySelector("#search-meaning");
+    bar.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            try {
+                if (hashing.hashTableKeys[priHash] == null) {
+                    throw 'Word Not Found';
+                }
 
-    try {
-        if (hashing.hashTableKeys[priHash] == null) {
-            throw 'Word Not Found';
+                const a = hashing.hashTableKeys[priHash][0];
+                const b = hashing.hashTableKeys[priHash][1];
+                const m = hashing.hashTableKeys[priHash][2];
+
+                secHash = hashing.calculateSecondaryHash(a, b, m, word);
+
+                if (hashing.hashTable[priHash][secHash] != null &&
+                    dictionary.database[hashing.hashTable[priHash][secHash]].en == word) {
+                    localStorage.setItem("refer", dictionary.database[hashing.hashTable[priHash][secHash]].bn);
+                } else {
+                    throw 'Word Not Found';
+                }
+            } catch (err) {
+                console.log(err);
+                localStorage.setItem("refer", '');
+            };
+            window.document.location = './info.html';
         }
+    });
 
-        const a = hashing.hashTableKeys[priHash][0];
-        const b = hashing.hashTableKeys[priHash][1];
-        const m = hashing.hashTableKeys[priHash][2];
-
-        secHash = hashing.calculateSecondaryHash(a, b, m, word);
-
-        // DEBUG
-        // console.log('abm: ' +a + ' ' + b + ' ' + m);
-        // console.log(hashing.hashTable[priHash][secHash]);
-        // console.log(dictionary.database[hashing.hashTable[priHash][secHash]]);
-
-
-        if (hashing.hashTable[priHash][secHash] != null &&
-            dictionary.database[hashing.hashTable[priHash][secHash]].en == word) {
-            document.getElementById('meaning') = dictionary.database[hashing.hashTable[priHash][secHash]].bn;
-        } else {
-            throw 'Word Not Found';
-        }
-    } catch (err) {
-        console.log(err);
-        document.getElementById('meaning') = '';
-    };
 }
