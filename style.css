@@ -5,8 +5,6 @@
 
 body {
     background-color: #cccccc;
-    font-family: 'Reggae One', cursive;
-    color: #004d4d;
 }
 
 .container {
@@ -15,7 +13,8 @@ body {
 
 .header {
     margin-top: 8rem;
-    font-size: 27px;
+    font-family: 'Reggae One', cursive;
+    color: #004d4d;
 }
 
 .searchbar-form {
@@ -24,8 +23,33 @@ body {
 }
 
 .searchbar {
-    border-color: blueviolet;
+    border-color: #ff1a75;
     padding: 1rem;
     font-size: 25px;
     width: 70%;
+    border-style: solid;
+    background-color: #323841;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.575);
+    border-radius: 2rem;
+    color: rgb(223, 218, 218);
+}
+
+.searchbar:focus {
+    background-color: #454c5f;
+    color: rgb(255, 255, 255);
+    outline: none;
+    -webkit-text-fill-color: white;
+}
+
+.searchbar::placeholder {
+    -webkit-text-fill-color: rgb(6, 215, 230);
+}
+
+.navbar-footer {
+    height: max-content;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: #0E2431;
+    color: white;
 }

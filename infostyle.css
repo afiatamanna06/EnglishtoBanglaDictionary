@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+* {
+    background-color: #e6e6f5;
+}
+
+.word {
+    font-size: 60px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.mean {
+    font-size: 20px;
+}
