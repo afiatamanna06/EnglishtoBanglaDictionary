@@ -281,6 +281,7 @@ function searchBengali() {
     let bar = document.querySelector("#search-meaning");
     bar.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
+            localStorage.setItem("demi", searchInput.value);
             try {
                 if (hashing.hashTableKeys[priHash] == null) {
                     throw 'Word Not Found';

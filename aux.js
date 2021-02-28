@@ -1,6 +1,8 @@
 const init = function(e) {
-    let wo = document.querySelector("#meaning");
-    wo.innerHTML = localStorage.getItem("refer");
+    let input = document.querySelector("#demo");
+    input.innerHTML = localStorage.getItem("demi");
+    let output = document.querySelector("#meaning");
+    output.innerHTML = localStorage.getItem("refer");
 };
 
 document.addEventListener('DOMContentLoaded', function() { init(); });
