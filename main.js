@@ -258,7 +258,7 @@ var hashing = new Hashing();
 
 window.onload = function initializeHashing() {
     console.log('Data Received');
-    dictionary = fetch(dictionaryDatabaseLink)
+    dictionary = fetch(databaseURL)
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
@@ -276,9 +276,9 @@ window.onload = function initializeHashing() {
 function searchBengali() {
     var searchInput = document.getElementById('search-meaning');
     var word = searchInput.value.toLowerCase();
-    var output = document.getElementById('meaning');
     var priHash = hashing.calculatePrimaryHash(word);
     var secHash;
+    document.getElementById('demo').innerHTML = searchInput;
 
     try {
         if (hashing.hashTableKeys[priHash] == null) {
@@ -299,12 +299,12 @@ function searchBengali() {
 
         if (hashing.hashTable[priHash][secHash] != null &&
             dictionary.database[hashing.hashTable[priHash][secHash]].en == word) {
-            output.innerHTML = dictionary.database[hashing.hashTable[priHash][secHash]].bn;
+            document.getElementById('meaning') = dictionary.database[hashing.hashTable[priHash][secHash]].bn;
         } else {
             throw 'Word Not Found';
         }
     } catch (err) {
         console.log(err);
-        output.innerHTML = '';
+        document.getElementById('meaning') = '';
     };
 }
